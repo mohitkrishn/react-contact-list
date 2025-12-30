@@ -26,7 +26,10 @@ const App = () => {
     const cnf = window.confirm("Are you sure you want to delete this contact?");
 
     if (!cnf) return;
-    else updatedContacts.splice(index, 1);
+    else {
+      window.alert("Contact deleted successfully!");
+      updatedContacts.splice(index, 1);
+    }
 
     setContactList(updatedContacts);
 

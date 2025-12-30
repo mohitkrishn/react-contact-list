@@ -11,7 +11,7 @@ const App = () => {
   function getContacts(formData) {
 
     const newContact = [...contactList];
-    
+
     newContact.push(formData);
 
     //setting data to updater function
@@ -22,7 +22,12 @@ const App = () => {
 
   function handleDelete(index) {
     const updatedContacts = [...contactList];
-    updatedContacts.splice(index, 1);
+
+    const cnf = window.confirm("Are you sure you want to delete this contact?");
+
+    if (!cnf) return;
+    else updatedContacts.splice(index, 1);
+
     setContactList(updatedContacts);
 
     // Update the local storage for the deleted contact
